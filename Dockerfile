@@ -1,4 +1,4 @@
-FROM python:3.9.0-buster
+FROM python:3.9.0-slim-buster
 ENV PYTHONUNBUFFERED 1
 
 # FIX OSError: Could not find library geos_c or load any of its variants ['libgeos_c.so.1', 'libgeos_c.so']
@@ -16,8 +16,6 @@ RUN apt-get install -y \
     mc
 
 
-ARG SERVER_TYPE
-ARG RUN_TESTS
 #RUN echo "1. SERVER_TYPE is $SERVER_TYPE"
 #RUN echo "2. SERVER_TYPE next $SERVER_TYPE"
 

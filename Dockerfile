@@ -2,18 +2,22 @@ FROM python:3.9.0-slim-buster
 ENV PYTHONUNBUFFERED 1
 
 # FIX OSError: Could not find library geos_c or load any of its variants ['libgeos_c.so.1', 'libgeos_c.so']
-RUN apt-get update -y
-RUN apt-get install -y libgeos-dev
+RUN apt-get -y update
+RUN apt-get -y upgrade
 
-RUN apt-get install -y gettext
-    #&& apt-get install -y cron
-
-# Install postgres requirements
-RUN apt-get install -y \
-    libgeos-dev \
-    libgdal-dev \
-    postgresql-client \
-    mc
+RUN apt-get -y install --no-install-recommends \
+        gcc \
+        gettext \
+        postgresql-server-dev-all \
+        postgresql-client \
+        libgeos-dev \
+        libgdal-dev \
+        zlib1g \
+        zlib1g-dev \
+        git \
+        mc \
+    && apt-get -y clean \
+    && rm -rf /var/lib/apt/lists/*
 
 
 #RUN echo "1. SERVER_TYPE is $SERVER_TYPE"

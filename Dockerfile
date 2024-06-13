@@ -1,4 +1,4 @@
-FROM python:3.9.0-buster
+FROM python:3.9.18-slim-bookworm
 ENV PYTHONUNBUFFERED 1
 
 # FIX OSError: Could not find library geos_c or load any of its variants ['libgeos_c.so.1', 'libgeos_c.so']
